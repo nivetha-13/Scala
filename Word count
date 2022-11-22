@@ -7,7 +7,7 @@ Example : Counting the number of word in the given file.
 Spark with Scala Code
 ----------------------
 val rdd1 = sc.textFile("/file1")
-val rdd2 = rdd1.flatMap(x => x.split(""))
+val rdd2 = rdd1.flatMap(x => x.split(" "))
 val rdd3 = rdd2.map(x => (x,1))
 val rdd4 = rdd3.reduceByKey(x,y => x+y)
 rdd4.collect()
@@ -18,7 +18,7 @@ pyspark
 
 
 rdd1 = sc.textFile("/file1")
-rdd2 = rdd1.flatMap(lambda x : x.split(""))
+rdd2 = rdd1.flatMap(lambda x : x.split(" "))
 rdd3 = rdd2.map(lambda x : (x,1))
 rdd4 = rdd3.reduceByKey(lambda x,y => x+y)
 rdd4.collect()
